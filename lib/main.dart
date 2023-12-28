@@ -5,6 +5,25 @@ void main() {
   runApp(const MyApp());
 }
 
+final theme = ThemeData(
+  colorScheme: ColorScheme.fromSeed(
+    seedColor: Colors.blue,
+    background: const Color(0xFF0A0118),
+    brightness: Brightness.light,
+    onBackground: Colors.white,
+  ),
+  cardColor: Colors.grey[200],
+  buttonTheme: const ButtonThemeData(buttonColor: Colors.blue),
+  textTheme: const TextTheme(
+    bodyMedium: TextStyle(
+      fontWeight: FontWeight.w300,
+      fontSize: 12,
+      color: Colors.black45,
+    ),
+  ),
+  useMaterial3: true,
+);
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -13,23 +32,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.grey,
-          background: Colors.grey,
-          brightness: Brightness.light,
-          onBackground: Colors.grey
-        ),
-        textTheme: const TextTheme(
-          bodyMedium: TextStyle(
-            fontWeight: FontWeight.w300,
-            fontSize: 12,
-            color: Colors.purpleAccent,
-          ),
-        ),
-        useMaterial3: true,
-      ),
+      theme: theme,
       home: const HomeWidgetScreen(),
     );
   }
 }
+
+//media query for next size screen is  530

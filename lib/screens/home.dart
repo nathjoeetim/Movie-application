@@ -203,7 +203,7 @@ class _HomeWidgetScreenState extends State<HomeWidgetScreen>
                     height: 450,
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.8),
+                      color: Theme.of(context).cardColor.withOpacity(0.6),
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: Stack(

@@ -19,18 +19,18 @@ class _EachUserCommentWidgetState extends State<EachUserCommentWidget> {
   @override
   Widget build(BuildContext context) {
     final screen = MediaQuery.of(context).size;
-
     return AnimatedContainer(
       duration: const Duration(milliseconds: 500),
-      height: widget.viewUserComment ? 480 : 0,
+      height: widget.viewUserComment ? 520 : 0,
       child: GestureDetector(
         onVerticalDragDown: (details) => widget.onHideCommentSection,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Container(
-              height: widget.viewUserComment ? 480 : 0,
+              height: widget.viewUserComment ? 520 : 0,
               width: screen.width,
+              padding: const EdgeInsets.only(bottom: 5),
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.background,
                 borderRadius: const BorderRadius.only(
@@ -46,7 +46,7 @@ class _EachUserCommentWidgetState extends State<EachUserCommentWidget> {
                     InkWell(
                       onTap: widget.onHideCommentSection,
                       child: Container(
-                        height: 30,
+                        height: 40,
                         width: 80,
                         margin: const EdgeInsets.only(left: 10),
                         decoration: const BoxDecoration(
@@ -65,6 +65,9 @@ class _EachUserCommentWidgetState extends State<EachUserCommentWidget> {
                           ),
                         ),
                       ),
+                    ),
+                    SizedBox(
+                      height: 10,
                     ),
                     SizedBox(
                       height: 380,

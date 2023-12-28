@@ -11,7 +11,7 @@ class LikedMoviesWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            margin: EdgeInsets.only(right: 5),
+            margin: const EdgeInsets.only(right: 5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -21,7 +21,7 @@ class LikedMoviesWidget extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(right: 5),
+            margin: const EdgeInsets.only(right: 5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -31,7 +31,7 @@ class LikedMoviesWidget extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(right: 5),
+            margin: const EdgeInsets.only(right: 5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -41,7 +41,7 @@ class LikedMoviesWidget extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(right: 5),
+            margin: const EdgeInsets.only(right: 5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -51,7 +51,7 @@ class LikedMoviesWidget extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(right: 5),
+            margin: const EdgeInsets.only(right: 5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
             ),

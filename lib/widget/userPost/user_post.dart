@@ -20,21 +20,26 @@ class _UserPostWidgetState extends State<UserPostWidget> {
     var screen = MediaQuery.of(context).size;
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 3; i++)
           Stack(
             children: [
               Container(
-                width: screen.width,
+                width:
+                    screen.width >= 750 ? screen.width / 2 : screen.width - 25,
                 padding: const EdgeInsets.only(
                   top: 5,
                   bottom: 3,
                   // left: 2,
                 ),
-                margin: const EdgeInsets.only(bottom: 10),
+                margin: const EdgeInsets.only(
+                  bottom: 10,
+                  right: 5,
+                  left: 5,
+                ),
                 decoration: BoxDecoration(
-                  color: Colors.white70,
+                  color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.circular(5),
                 ),
                 child: Padding(
@@ -102,10 +107,10 @@ class _UserPostWidgetState extends State<UserPostWidget> {
                       const SizedBox(
                         height: 10,
                       ),
-                      const SizedBox(
-                        width: 350,
+                      SizedBox(
+                        width: screen.width >= 750 ? screen.width : 350,
                         height: 70,
-                        child: Text(
+                        child: const Text(
                           'What movies or TV shows are you currently loving? Share your recommendations with me! Let\'s create a must-watch list together. 🍿🎬',
                           style: TextStyle(
                             color: Colors.black54,
@@ -118,39 +123,22 @@ class _UserPostWidgetState extends State<UserPostWidget> {
                       const SizedBox(
                         height: 5,
                       ),
-                      Row(
-                        // crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const Icon(Icons.thumb_up_alt_outlined,
-                                      color: Colors.black54),
-                                  Text(
-                                    '${i * 3}0K',
-                                    style: const TextStyle(
-                                      color: Colors.black54,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              InkWell(
-                                onTap: widget.toogleUserMenu,
-                                child: Column(
+                      SizedBox(
+                        width: screen.width,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    const Icon(Icons.comment,
+                                    const Icon(Icons.thumb_up_alt_outlined,
                                         color: Colors.black54),
                                     Text(
-                                      '${i * 12}3',
+                                      '${i * 3}0K',
                                       style: const TextStyle(
                                         color: Colors.black54,
                                         fontWeight: FontWeight.bold,
@@ -158,31 +146,54 @@ class _UserPostWidgetState extends State<UserPostWidget> {
                                     )
                                   ],
                                 ),
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              const Icon(
-                                Icons.mobile_screen_share,
-                                color: Colors.black54,
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            width: screen.width > 330 ? screen.width - 66 : 330,
-                            height: 190,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                InkWell(
+                                  onTap: widget.toogleUserMenu,
+                                  child: Column(
+                                    children: [
+                                      const Icon(Icons.comment,
+                                          color: Colors.black54),
+                                      Text(
+                                        '${i * 12 / 4}3',
+                                        style: const TextStyle(
+                                          color: Colors.black54,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                const Icon(
+                                  Icons.mobile_screen_share,
+                                  color: Colors.black54,
+                                ),
+                              ],
                             ),
-                            child: Image.asset(
-                              'assets/${i + 1}.jpeg',
-                              fit: BoxFit.contain,
+                            const SizedBox(
+                              width: 10,
                             ),
-                          ),
-                        ],
+                            Container(
+                              width: screen.width >= 750
+                                  ? screen.width / 2 - 60
+                                  : screen.width >= 330
+                                      ? screen.width - 73
+                                      : 320,
+                              height: 190,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              child: Image.asset(
+                                'assets/${i + 1}.jpeg',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       //   the comment section
                       const SizedBox(

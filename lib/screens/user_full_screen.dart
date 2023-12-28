@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moviest_app/widget/news_widget.dart';
 import 'package:moviest_app/widget/userPost/comment_widget.dart';
 import 'package:moviest_app/widget/userPost/liked_movies.dart';
 import 'package:moviest_app/widget/userPost/user_post.dart';
@@ -103,7 +104,7 @@ class _UserFullDetailScreenState extends State<UserFullDetailScreen> {
                         bottom: 20,
                       ),
                       width: screen.width,
-                      color: Colors.grey,
+                      color: Theme.of(context).colorScheme.background,
                       child: Column(
                         crossAxisAlignment: screen.width > 350
                             ? CrossAxisAlignment.start
@@ -312,12 +313,12 @@ class _UserFullDetailScreenState extends State<UserFullDetailScreen> {
                           const SizedBox(
                             height: 10,
                           ),
-                          const Text(
+                          Text(
                             'Liked Movies',
                             style: TextStyle(
                               fontSize: 23,
                               fontWeight: FontWeight.bold,
-                              color: Colors.white70,
+                              color: Theme.of(context).cardColor,
                               fontStyle: FontStyle.italic,
                             ),
                           ),
@@ -325,9 +326,9 @@ class _UserFullDetailScreenState extends State<UserFullDetailScreen> {
                             height: 180,
                             width: screen.width,
                             padding: const EdgeInsets.all(7),
-                            decoration: const BoxDecoration(
-                              color: Colors.white70,
-                              borderRadius: BorderRadius.all(
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).cardColor,
+                              borderRadius: const BorderRadius.all(
                                 Radius.circular(10),
                               ),
                             ),
@@ -346,10 +347,20 @@ class _UserFullDetailScreenState extends State<UserFullDetailScreen> {
                               fontStyle: FontStyle.italic,
                             ),
                           ),
-                          //   user post
-                          UserPostWidget(
-                            toogleUserMenu: onToggleUserMenu,
-                          )
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              //   user post
+                              UserPostWidget(
+                                toogleUserMenu: onToggleUserMenu,
+                              ),
+                              if (screen.width >= 750)
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                              if (screen.width >= 750) const NewsWidget()
+                            ],
+                          ),
                         ],
                       ),
                     )

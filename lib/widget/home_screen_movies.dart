@@ -28,13 +28,13 @@ class _HomeScreenMoviesWidgetState extends State<HomeScreenMoviesWidget> {
           staggeredTileBuilder: (index) {
             return const StaggeredTile.fit(1);
           },
-          crossAxisCount: screen.width >= 600
-              ? 4
-              : screen.width >= 400
-                  ? 2
-                  : screen.width >= 350
-                      ? 1
-                      : 1,
+          crossAxisCount:  screen.width >= 600
+                  ? 3
+                  : screen.width >= 400
+                      ? 2
+                      : screen.width >= 350
+                          ? 1
+                          : 1,
           crossAxisSpacing: 1,
           mainAxisSpacing: 1,
         ),
